@@ -1,0 +1,1546 @@
+---
+---
+
+/** DUCKDB MAIN CSS **/
+
+$duckDByellow: #fff100;
+$duckDBlightyellow: #fffee6;
+$duckDBgrey: #ebebeb;
+$duckDBblue: #e0f1fd;
+$duckDBlightgrey: #f5f5f5;
+$maxContentWidth: 950px;
+
+$fontMono:  "JetBrainsMono-Regular", "Lucida Console", monospace;
+$fontMonoBold: "JetBrainsMono-Bold", "Lucida Console", monospace;
+$fontMonoItalic: "JetBrainsMono-Italic", "Lucida Console", monospace;
+$fontMonoItalicBold: "JetBrainsMono-Bold-Italic", "Lucida Console", monospace;
+
+$fontSans: "SuisseIntl-Book", Helvetica, Arial, sans-serif;
+$fontSansBold: "SuisseIntl-SemiBold", Helvetica, Arial, sans-serif;
+
+/** FONT IMPORT **/
+@import url(vs.css);
+@font-face{
+	font-family: "SuisseIntl-Book";
+	src: url("webfont/SuisseIntl-Book-WebXL.woff2") format("woff2"),url("webfont/SuisseIntl-Book-WebXL.woff") format("woff");
+}
+@font-face{
+	font-family: "SuisseIntl-Medium";
+	src: url("webfont/SuisseIntl-Medium-WebS.woff2") format("woff2"),url("webfont/SuisseIntl-SemiBold-WebS.woff") format("woff");
+}
+@font-face{
+	font-family: "SuisseIntl-SemiBold";
+	src: url("webfont/SuisseIntl-SemiBold-WebS.woff2") format("woff2"),url("webfont/SuisseIntl-SemiBold-WebS.woff") format("woff");
+}
+
+@font-face{
+	font-family: "DuckDB-Symbol";
+	src: url("webfont/DuckDB-Symbol.woff2") format("woff2"),url("webfont/DuckDB-Symbol.woff") format("woff");
+}
+
+@font-face{
+	font-family: "JetBrainsMono-Regular";
+	src: url("webfont/JetBrainsMono/woff2/JetBrainsMono-Regular.woff2") format("woff2"),url("webfont/JetBrainsMono/woff/JetBrainsMono-Regular.woff") format("woff");
+}
+@font-face{
+	font-family: "JetBrainsMono-Bold";
+	src: url("webfont/JetBrainsMono/woff2/JetBrainsMono-Bold.woff2") format("woff2"),url("webfont/JetBrainsMono/woff/JetBrainsMono-Bold.woff") format("woff");
+}
+@font-face{
+	font-family: "JetBrainsMono-Italic";
+	src: url("webfont/JetBrainsMono/woff2/JetBrainsMono-Italic.woff2") format("woff2"),url("webfont/JetBrainsMono/woff/JetBrainsMono-Italic.woff") format("woff");
+}
+@font-face{
+	font-family: "JetBrainsMono-Bold-Italic";
+	src: url("webfont/JetBrainsMono/woff2/JetBrainsMono-Bold-Italic.woff2") format("woff2"),url("webfont/JetBrainsMono/woff/JetBrainsMono-Bold-Italic.woff") format("woff");
+}
+
+@import "hamburgers.min.css";
+
+
+@mixin button {
+	color: black;
+	height: 30px;
+	display: inline-block;
+	background-color: black;
+	line-height: 30px;
+	padding-left: 8px;
+	padding-right: 25px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background-color .3s;
+	span::after{
+		content: "→";
+		font-family: "DuckDB-Symbol";
+		margin-left: 4px;
+		transition: transform .3s;
+		position: absolute;
+	}
+	&:hover span::after{
+		transform: translateX(3px);
+	}
+}
+
+@mixin textlink {
+	color: darken($duckDBgrey,20);
+	text-decoration: underline;
+	font-size: 14px;
+	transition: color .3s;
+	span::after{
+		content: "→";
+		font-family: "DuckDB-Symbol";
+		margin-left: 6px;
+		transition: transform .3s;
+		position: absolute;
+		text-decoration: none;
+		line-height: 1.5;
+	}
+	&:hover span::after{
+		transform: translateX(3px);
+	}
+}
+
+
+*{
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body{
+	font-size: 100%;
+	font-family: $fontSans;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+::-moz-selection {
+  background: $duckDByellow;
+}
+::selection {
+  background: $duckDByellow;
+}
+
+a, a:active, a:focus, button, button:active, button:focus {
+  outline: none;
+}
+
+p a{
+	color: black;
+	text-decoration: underline;
+	-webkit-transition: background-color .3s;
+	-o-transition: background-color .3s;
+	transition: background-color .3s;
+	&:hover{
+		background-color: $duckDByellow;
+		cursor: pointer;
+	}
+}
+
+ul{
+	list-style-type: '\2022 \00a0\00a0';
+}
+
+strong{
+	font-family: $fontSansBold;
+	font-weight: normal;
+}
+
+/** External Links in Fließtext **/
+/*
+a.externallink:hover{
+	background-color: $duckDBblue!important;
+}
+a.externallink:hover::after{
+	opacity: 1;
+	-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+			transform: translate(0px, 0px);
+}
+a.externallink::after {
+  content: " \2197";
+  font-family: "DuckDB-Symbol";
+  position: absolute;
+  margin-left: -1px;
+  font-size: 10px;
+  opacity: 0;
+  -webkit-transform: translate(-10px, 5px);
+	  -ms-transform: translate(-10px, 5px);
+		  transform: translate(-10px, 5px);
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+a.externallink{
+	margin-right: 3px;
+}
+*/
+
+a.externallink:hover{
+	cursor: url("data:image/svg+xml,%3Csvg version='1.1' id='Ebene_1' xmlns='http://www.w3.org/2000/svg' x='0' y='0' width='17' height='17' viewBox='0 0 28.3 28.3' style='enable-background:new 0 0 28.3 28.3' xml:space='preserve'%3E%3Cstyle%3E.st0%7Bfill:%23fff%7D%3C/style%3E%3Cpath d='M1.2 27.2V4.5h10.9v3.9h-7v14.9h14.8v-7h3.9v10.9z'/%3E%3Cpath class='st0' d='M11.5 5.2v2.6h-7v16.1h16.1v-7h2.6v9.6H1.8V5.2h9.7m1.2-1.3H.6V27.7H24.4V15.6h-5v7H5.7V9h7V3.9z'/%3E%3Cg%3E%3Cpath d='m11.6 14 9-9h-5.9V1.2h12.5v12.4h-3.9V7.8l-9 8.9z'/%3E%3Cpath class='st0' d='M26.6 1.8V13H24V6.3l-9.6 9.6-1.9-1.9 9.6-9.6h-6.8V1.8h11.3M27.8.5H14.1v5H19L11.5 13l-.8 1 .9.9 1.9 1.9.9.9.9-.9 7.5-7.5v4.9h5V.5z'/%3E%3C/g%3E%3C/svg%3E") 2 2, alias;
+	background-color: $duckDBblue!important;
+}
+
+/** External Links in Header **/
+.external a::after{
+	content: "\E000";
+	font-family: "DuckDB-Symbol";
+	font-size: 90%;
+	top: -1px;
+	-webkit-transform: translateX(1px);
+		-ms-transform: translateX(1px);
+			transform: translateX(1px);
+	display: inline-block;
+	-webkit-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+	opacity: 0;
+	color: white;
+	position: absolute;
+}
+.external a:hover::after{
+	-webkit-transform: translateX(5px);
+		-ms-transform: translateX(5px);
+			transform: translateX(5px);
+	opacity: 1;
+	color: $duckDByellow;
+}
+.external a:hover{
+	background-color: transparent!important;
+}
+
+
+.duckdbsymbol{
+	font-family: "DuckDB-Symbol";
+}
+
+.onlymobile{
+	display: none;
+}
+.notonmobile{
+	display: block;
+}
+
+a.blocklink{
+	display: block;
+	position: absolute;
+	z-index: 500;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	&:hover{
+		background-color: transparent!important;
+	}
+}
+
+img.downloadlogo{
+	height: 30px;
+	width: 130px;
+	position: absolute;
+	top: 10px;
+	left: 15px;
+	z-index: 999;
+	background: red;
+	opacity: 0!important;
+}
+
+header .headerline{
+	background-color: black;
+	height: 53px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9000;
+	.headercontent{
+		max-width: calc(100% - 60px);
+		margin: 0 auto;
+		color: white;
+		line-height: 53px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+				justify-content: space-between;
+		.duckdbhome{
+			font-size: 20px;
+			font-family: "DuckDB-Symbol";
+			a{
+				text-decoration: none;
+				color: $duckDByellow;
+				-webkit-transition: color .3s;
+				-o-transition: color .3s;
+				transition: color .3s;
+				&:hover{
+					color: white;
+				}
+			}
+		}
+		.landingmenu{
+			nav{
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				> div{
+					margin-left: 40px;
+					position: relative;
+				}
+				a{
+					color: white;
+					text-decoration: none;
+					-webkit-transition: color .3s;
+					-o-transition: color .3s;
+					transition: color .3s;
+					&:hover{
+						color: $duckDByellow;
+					}
+				}
+				.hasSub + ul{
+					padding: 7px 15px;
+					padding-right: 20px;
+					margin: 0;
+					background-color: $duckDByellow;
+					position: absolute;
+					top: 63px;
+					left: -3px;
+					-webkit-transition: all .3s ease;
+					-o-transition: all .3s ease;
+					transition: all .3s ease;
+					opacity: 0;
+					visibility: hidden;
+					li{
+						line-height: 29px;
+						font-size: 15px;
+						white-space: nowrap;
+						color: black;
+						a{
+							text-decoration: none;
+							color: black;
+						}
+					}
+					ul{
+						padding: 5px 12px;
+						margin-top: -6px;
+						margin-bottom: 5px;
+						li{
+							line-height: 20px;
+							font-size: 13px;
+						}
+					}
+				}
+				.hasSub + ul:hover{
+					opacity: 1;
+					visibility: visible;
+					-webkit-transform: translateY(-10px);
+						-ms-transform: translateY(-10px);
+							transform: translateY(-10px);
+				}
+				.hasSub{
+					cursor: pointer;
+					a::after{
+						content: "\E010";
+						font-family: "DuckDB-Symbol";
+						margin-left: 3px;
+					}
+					&:hover{
+						color: $duckDByellow;
+						& ~ ul{
+							opacity: 1;
+							visibility: visible;
+							-webkit-transform: translateY(-10px);
+								-ms-transform: translateY(-10px);
+									transform: translateY(-10px);
+							ul{
+								visibility: visible;
+							}
+						}
+						a{
+							color: $duckDByellow;
+						}
+					}
+				}
+				.search_icon{
+					width: 17px;
+					height: 53px;
+					background-image: url("data:image/svg+xml,%3Csvg width='15' height='14' viewBox='0 0 15 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.073 9.312 14 13.238' stroke='%23fff' stroke-width='1.5'/%3E%3Ccircle cx='5.923' cy='5.923' r='5.173' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E");
+					background-repeat: no-repeat;
+					background-size: contain;
+					background-position: center center;
+					cursor: pointer;
+					display: none;
+					&:hover{
+						background-image: url("data:image/svg+xml,%3Csvg width='15' height='14' viewBox='0 0 15 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.073 9.312 14 13.238' stroke='%23FFEF00' stroke-width='1.5'/%3E%3Ccircle cx='5.923' cy='5.923' r='5.173' stroke='%23FFEF00' stroke-width='1.5'/%3E%3C/svg%3E");
+					} 
+				}
+			}
+		}
+	}
+}
+
+body.documentation header .headerline .headercontent .landingmenu nav .search_icon{
+	display: block;
+}
+
+.hamburger{
+	padding: 3px;
+	margin-top: 3px;
+	display: none;
+}
+
+.hamburger-inner, .hamburger-inner:after, .hamburger-inner:before{
+	background-color: #ffffff;
+	border-radius: 0px;
+	height: 2px;
+}
+
+.hamburger.is-active:hover, .hamburger:hover{
+	opacity: 1;
+}
+
+.hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner:after, .hamburger.is-active .hamburger-inner:before{
+	background-color: $duckDByellow;
+}
+
+main{
+	h1{
+		font-size: 24px;
+		font-weight: normal;
+		margin-bottom: 50px;
+	}
+	.wrap{
+		max-width: $maxContentWidth;
+		margin: 0 auto;
+	}
+	#main_content_wrap{
+		margin-top: 80px;
+	}
+}
+
+
+
+footer{
+	.sitefooter{
+		background-color: black;
+		color: white;
+		.footercontent{
+			max-width: 980px;
+			margin: 0 auto;
+			padding: 45px 30px;
+			//padding-bottom: 45px;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			justify-content: space-between;
+			column-gap: 80px;
+			font-size: 14px;
+			strong{
+					font-weight: normal;
+				color: $duckDByellow;
+				}
+			> div{
+				overflow: visible;
+				position: relative;
+				a{
+					color: #878787;
+					text-decoration: underline;
+					-webkit-transition: color .3s;
+					-o-transition: color .3s;
+					transition: color .3s;
+					&:hover{
+						color: $duckDByellow;
+					}
+				}
+			}
+			h6{
+				text-decoration: none;
+				font-family: $fontSans;
+				font-weight: normal;
+				margin-top: 0px;
+				margin-bottom: 4px;
+				color: white;
+			}
+			img.duckdbfooter{
+				width: 120px;
+				height: auto;
+				transform: translateY(-3px);
+			}
+			.icons a{
+				text-decoration: none;
+				font-size: 25px;
+				span{
+					margin-right: 4px;
+				}
+			}
+			.tmhints{
+				a{
+					font-size: 11px;
+					color: #878787;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+
+h1{
+	/*font-size: 145%;
+	line-height: 145%;*/
+	font-size: 29px;
+	line-height: 1.0;
+	font-weight: normal;
+	margin-bottom: 50px;
+}
+h2{
+	/*
+	font-size: 140%;
+	line-height: 140%;
+	*/
+	font-size: 26px;
+	line-height: 1.0;
+	font-weight: normal;
+	margin-bottom: 30px;
+}
+h3{
+	font-weight: normal;
+	font-size: 21px;
+	line-height: 1.1;
+	/*
+	font-size: 120%;
+	line-height: 120%;
+	*/
+}
+h4{
+	font-weight: normal;
+	font-size: 19px;
+	line-height: 1.0;
+}
+h5{
+	font-weight: normal;
+	line-height: 1.0;
+	font-size: 18px;
+}
+h6{
+	font-weight: normal;
+	line-height: 1.0;
+	font-size: 14px;
+}
+h1 code{
+	background-color: transparent!important;
+	padding: 0!important;
+	font-size: 145%;
+	font-family: $fontMono!important;
+}
+h2 code{
+	background-color: transparent!important;
+	padding: 0!important;
+	font-size: 140%;
+	font-family: $fontMono!important;
+}
+h3 code{
+	background-color: transparent!important;
+	padding: 0!important;
+	font-size: 120%;
+	font-family: $fontMono!important;
+}
+
+/** SPECIAL LANDING PAGE **/
+
+body.landing{
+	section:nth-child(even){
+		background-color: $duckDBlightgrey;
+	}
+	section{
+		padding: 70px 15px;
+		&.reducedpadding{
+			padding: 40px 15px;
+		}
+	}
+	.welcome, .benefits{
+		width: 100%;
+		text-align: center;
+		margin-top: 33px;
+		img{
+			width: 100px;
+			margin-bottom: 35px;
+		}
+		h1{
+			max-width: 1000px;
+			margin: 0 auto;
+			font-size: 34px;
+			line-height: 1;
+		}
+		h2{
+			font-size: 145%;
+		}
+		.mainlinks{
+			ul{
+				list-style: none;
+				padding: 0px;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: center;
+					-ms-flex-pack: center;
+						justify-content: center;
+				margin: 0 auto;
+				margin-top: 50px;
+				max-width: $maxContentWidth;
+				a{
+					text-decoration: none;
+					color: #4D4D4D;
+				}
+				li.highlighted{
+					background-color: black;
+					color: white;
+					border-color: black;
+					&:hover{
+						background-color: black;
+						color: $duckDByellow;
+						border-color: transparent;
+					}
+				}
+				li{
+					min-width: 160px;
+					//flex: 1 1 0px;
+					border: 1px solid darken($duckDBgrey,20);
+					margin-left: 5px;
+					margin-right: 5px;
+					padding: 0px 0px;
+					-webkit-transition: all .3s;
+					-o-transition: all .3s;
+					transition: all .3s;
+					height: 32x;
+					line-height: 31px;
+					background-color: transparent;
+					font-size: 14px;
+					&:hover{
+						background-color:  $duckDByellow;
+						color: black;
+						border-color: transparent;
+					}
+				}
+			}
+		}
+	}
+	.benefits{
+		margin-top: 0;
+		h1{
+			font-size: 210%;
+		}
+	}
+	.boxlayout{
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+				justify-content: space-between;
+		-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+		.box{
+			width: 50%;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			position: relative;
+			margin-bottom: 30px;
+			div:first-child{
+				width: 135px;
+				margin-top: 0px;
+			}
+			div:nth-child(2){
+				width: calc(100% - 150px);
+				max-width: 390px;
+				ul{
+					padding-left: 15px;
+					margin-top: 10px;
+					margin-bottom: 2px;
+					font-size: 14px;
+					color: #4D4D4D;
+					ul{
+						margin: 0;
+					}
+				}
+				span.duckdbsymbol{
+					font-size: 14px;
+					color: darken($duckDBgrey,20);
+				}
+				a{	
+					@include textlink();
+					color: darken($duckDBgrey,20);
+					font-size: 14px;
+					&:hover{
+						//background-color: $duckDByellow;
+						color: black;
+	}
+				}
+			}
+		}
+	}
+	.whyduckdb{
+		.boxlayout{
+			.box{
+				.duckdbsymbol{
+					font-size: 70px;
+				}
+				div.icon{
+					width: 120px;
+					height: 120px;
+					background-color: $duckDBlightgrey;
+					text-align: center;
+					display: table-cell;
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+	.using{
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+				justify-content: space-between;
+		.box{
+			-webkit-box-flex: 1;
+				-ms-flex: 1 1 0px;
+					flex: 1 1 0px;
+			position: relative;
+			overflow: hidden;
+			div.icon{
+				width: 90px;
+				float: left;
+				font-size: 85px;
+				margin-top: 10px;
+			}
+			div:not(.icon){
+				margin-top: 20px;
+				width: calc(100% - 90px);
+				float: left;
+				padding-left: 45px;
+				padding-right: 50px;
+			}
+			ul {
+				padding: 0;
+				margin: 0;
+				list-style-type: '\2022 \00a0\00a0';
+				li{
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+	.docu{
+		.boxlayout{
+			.box{
+				display: block;
+				-webkit-box-flex: 1;
+					-ms-flex: 1 1 0px;
+						flex: 1 1 0px;
+				.button{
+					border: 1px solid black;
+					padding: 4px 0px;
+					color: black;
+					text-align: center;
+					width: 100%;
+					margin-top: 15px;
+					cursor: pointer;
+					-webkit-transition: all .3s;
+					-o-transition: all .3s;
+					transition: all .3s;
+					max-width: 320px;
+					&:hover{
+						background-color: $duckDByellow;
+						border: 1px solid black;
+					}
+				}
+				a:nth-child(3) .button{
+					color: white;
+					background-color: black;
+					&:hover{
+						border: 1px solid black;
+						color: $duckDByellow;
+					}
+				}
+				a:nth-child(2) .button{
+					margin-top: 40px;
+				}
+				div.quicklinks{
+					width: 100%;
+					position: relative;
+					overflow: hidden;
+					display: -webkit-box;
+					display: -ms-flexbox;
+					display: flex;
+					-webkit-box-pack: center;
+						-ms-flex-pack: center;
+							justify-content: center;
+					margin-top: 10px;
+				}
+				div.quickaccess{
+					border: 1px solid black;
+					padding: 10px 15px;
+					width: 50%;
+					margin-top: 0px;
+					//max-width: none;
+					&:first-child{
+						border-right: 0px;
+					}
+					li{
+						list-style-type: '\2022 \00a0\00a0';
+					}
+					p{
+						margin-bottom: 4px;
+						margin-top: 0px;
+					}
+					a{
+						color: black;
+						text-decoration: underline;
+						&:hover{
+							background-color: $duckDByellow;
+						}
+					}
+				}
+			}
+			.box:first-child{
+				padding-right: 40px;
+			}
+		}
+		a{
+			text-decoration: none;
+			color: black;
+		}
+
+	}
+
+	.install{
+		p{
+			max-width: 450px;
+			margin-bottom: 50px;
+		}
+		.environment{
+			ul{
+				padding: 0;
+				margin: 0;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: justify;
+					-ms-flex-pack: justify;
+						justify-content: space-between;
+				list-style: none;
+				li{
+					/*
+					-webkit-box-flex: 1;
+						-ms-flex: 1 1 0px;
+							flex: 1 1 0px;
+					*/
+					flex: auto;
+					flex-grow: 3;
+					-webkit-transition: all .3s;
+					-o-transition: all .3s;
+					transition: all .3s;
+					color: darken($duckDBgrey,20);
+					border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+					text-align: center;
+					cursor: pointer;
+					height: 40px;
+					line-height: 40px;
+					white-space: nowrap;
+					&:hover{
+						color: black;
+					}
+				}
+				li.active{
+					border-bottom: 2px solid black;
+					color: black;
+				}
+			}
+		}
+		.result{
+			background-color: $duckDBlightgrey;
+			min-height: 80px;
+			font-family: $fontMono;
+			padding: 15px;
+			margin-top: 10px;
+			font-size: 14px;
+			a{
+				color: black;
+				background-color: transparent;
+				font-family: $fontMono;
+				&:hover{
+					color: black;
+					background-color: $duckDByellow;
+				}
+			}
+		}
+		.result + p{
+			color: darken($duckDBgrey,20);
+			max-width: 100%;
+			span{
+				margin-left: 15px;
+				margin-right: 15px;
+				font-size: 14px;
+			}
+			span:first-child{
+				margin-left: 0px;
+			}
+		}
+		.hidden{
+			display: none;
+		}
+	}
+	.newsblog{
+		h2{
+			display: inline;
+		}
+		a.newsarchive{
+			margin-left: 40px;
+			@include textlink();
+			text-decoration: none;
+			span::after{
+				line-height: 2.4;
+			}
+			&:hover{
+				color: black;
+			}
+		}
+		.newswrap{
+			display: flex;
+			justify-content: space-between;
+			margin-top: 50px;
+			.postpreview{
+				width: 29%;
+				.date{
+					color: darken($duckDBgrey,20);
+					margin-bottom: 3px;
+					font-size: 13.5px;
+				}
+				h3{
+					font-weight: normal;
+					font-size: 20px;
+					a{
+						color: black;
+						text-decoration: inherit;
+					}
+				}
+				p{
+					hyphens: auto;
+					font-size: 16px;
+				}
+				span.duckdbsymbol{
+					color: darken($duckDBgrey,20);
+					margin-right: 5px;
+				}
+				a.continue{
+					@include textlink();
+					font-size: 14px;
+					&:hover{
+						color: black;
+						//background-color: $duckDByellow;
+					}
+				}
+			}
+		}
+	}
+	.stickerbanner{
+		display: flex;
+		> div{
+			width: 50%;
+		}
+		.button{
+			@include button();
+			background-color: $duckDByellow;
+			span::after{
+				line-height: 27px;
+			}
+		}
+	}
+}
+
+body.landing label.onlymobile,
+body.installation .evironment label.onlymobile{
+	position: relative;
+	&::after{
+		content: "\E010";
+		font-family: "DuckDB-Symbol";
+		right: 10px;
+		top: 4px;
+		padding: 0 0 2px;
+		position: absolute;
+		pointer-events: none;
+		font-size: 20px;
+		color: white;
+	}
+}
+.environmentselect{
+	width: 100%;
+	/*border: 1px solid #b8b8b8;*/
+	border: none;
+	background: black;
+	color: white;
+	border-radius: 0;
+	height: 35px;
+	padding-left: 9px;
+	font-family: "SuisseIntl-Book", Helvetica, Arial, sans-serif;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	cursor: pointer;
+}
+
+body.installation{
+	.environmentselect{
+		background-color: darken($duckDBlightgrey,5);
+		color: black;
+		border: none;
+		border-bottom: 2px solid rgba(0,0,0,0.4);
+		&:focus, &:active{
+			outline: 0;
+			border: none;
+			border-radius: 0;
+			border-bottom: 2px solid rgba(0,0,0,0.4);
+		}
+	}
+}
+body.installation .evironment label.onlymobile{
+	&::after{
+		color: black;
+	}
+}
+
+
+
+/** DOCUMENTATION **/
+
+body.documentation{
+	nav.mobile{
+		display: none;
+	}
+	main .wrap{
+		width: calc(100% - 252px);
+		margin-left: 252px;
+		padding: 40px;
+		#main_content_wrap{
+			max-width: 720px;
+			margin-top: 100px;
+			img{
+				width: 100%;
+				height: auto;
+				margin-bottom: 50px;
+				margin-top: 50px;
+			}
+			table{ img{
+				width: auto;
+				height: auto;
+				margin-bottom: -4px;
+				margin-top: 0px;
+			}}
+		}
+		h1{
+			font-size: 29px;
+			margin-bottom: 20px;
+			margin-top: 50px;
+		}
+		h2{
+			font-size: 26px;
+			margin-bottom: 10px;
+			margin-top: 40px;
+		}
+		h3{
+			font-size: 21px;
+			margin-bottom: 10px;
+			margin-top: 30px;
+			font-family: "SuisseIntl-Medium";
+		}
+		h4{
+			font-size: 19px;
+		}
+		h4 + .highlighter-rouge{
+			margin-top: 5px;
+		}
+		
+		p + h4, .highlighter-rouge + h4{
+			margin-top: 30px;
+		}
+		h2#notes{
+			margin-top: 5px;
+		}
+		a{
+			color: black;
+			background-color: transparent;
+			text-decoration: underline;
+			-webkit-transition: background-color .3s;
+			-o-transition: background-color .3s;
+			transition: background-color .3s;
+			&:hover{
+				background-color: $duckDByellow;
+				cursor: pointer;
+			}
+		}
+		.limit-width{
+			width: calc(100vw - 380px);
+		}
+	}
+	.headlinebar{
+		background-color: $duckDBlightgrey;
+		height: 52px;
+		line-height: 52px;
+		font-size: 32px;
+		top: 53px;
+		left: 252px;
+		padding-left: 40px;
+		position: absolute;
+		width: calc(100% - 252px);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		> div.version{
+			font-size: 14px;
+			color: rgba(184, 184, 184, 1);
+			padding-right: 30px;
+			cursor: pointer;
+			background-color: $duckDBlightgrey;
+			z-index: 500;
+			.selectedversion{
+				color: black;
+				text-decoration: underline;
+				margin-left: 10px;
+				
+			}
+			&::after{
+				content: "\E010";
+				font-family: "DuckDB-Symbol";
+				margin-left: 5px;
+				text-decoration: none;
+				color: black;
+			}
+			&:hover ~ .versionsidebar{
+				transform: translateX(0px);
+			}
+			.versionsidebar:hover, 
+			.versionsidebar.active{
+				transform: translateX(0px);
+			}
+		}
+	}
+}
+.versionsidebar{
+	position: fixed;
+	top: 50px;
+	height: calc(100vh - 50px);
+	right: 0;
+	width: 135px;
+	background-color: $duckDByellow;
+	padding: 20px;
+	padding-top: 13px;
+	transform: translateX(140px);
+	transition: transform .3s;
+	z-index: 400;
+	> ul{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		li{
+			line-height: 1.8;
+			font-size: 14px;
+			cursor: pointer;
+			&:hover{
+				text-decoration: underline;
+			}
+			a{
+				text-decoration: none!important;
+			}
+		}
+	}
+	&:hover{
+		transform: translateX(0px);
+	}
+	>span{
+		font-size: 14px;
+		line-height: 1;
+	}
+}
+
+.sidenavigation{
+	position: fixed;
+	top: 53px;
+	background-color: $duckDByellow;
+	width: 252px;
+	height: calc(100vh - 53px);
+	padding: 20px;
+	padding-left: 30px;
+	z-index: 999;
+	overflow: auto;
+	-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	a{
+		color: black;
+		text-decoration: none;
+	}
+	ul{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		overflow: hidden;
+		position: relative;
+		zoom: 1;
+	}
+	li{
+		line-height: 26px;
+		cursor: pointer;
+		&.active{
+			text-decoration: underline;
+			&.hasSub {
+				text-decoration: none;
+			}
+		}
+	}
+	li.active{
+		text-decoration: underline;
+	}
+	li.hasSub span{
+		-webkit-transition: -webkit-transform .3s;
+		transition: -webkit-transform .3s;
+		-o-transition: transform .3s;
+		transition: transform .3s;
+		transition: transform .3s, -webkit-transform .3s;
+		display: inline-block;
+		font-size: 14px;
+		position: absolute;
+		-webkit-transform: translateX(-13px);
+			-ms-transform: translateX(-13px);
+				transform: translateX(-13px);
+	}
+	li.hasSub span.show::before{
+		content: ' \25BA';
+		font-family: "DuckDB-Symbol";
+	}
+	li.hasSub.opened span.show{
+		-webkit-transform: translateX(-13px) rotate(90deg);
+			-ms-transform: translateX(-13px) rotate(90deg);
+				transform: translateX(-13px) rotate(90deg);
+		-webkit-transition: -webkit-transform .3s;
+		transition: -webkit-transform .3s;
+		-o-transition: transform .3s;
+		transition: transform .3s;
+		transition: transform .3s, -webkit-transform .3s;
+		position: absolute;
+	}
+	ul.sidenav{
+		overflow: visible;
+		> ul{
+			padding-left: 20px;
+			overflow: hidden;
+			&.parentnav{
+				display: block;
+			}
+			ul{
+				padding-left: 20px;
+				overflow: hidden;
+				display: none;
+				li{
+					font-size: 14px;
+				}
+				&.parentnav{
+					display: block;
+				}
+				ul{
+					display: none; // Dritte Navigationsebene ausblenden
+					li{
+						font-size: 12px;
+						line-height: 1.7;
+					}
+				}
+			}
+			/*
+			> ul:nth-of-type(3){
+				display: block; // SQL ausklappen
+				&.parentnav{
+					display: block;
+				}
+			}
+			*/
+		}
+		ul:nth-of-type(2){
+			display: none; // Benchmarking einklappen
+			&.parentnav{
+				display: block;
+			}
+		}
+	}
+}
+
+
+/** FAQ **/
+
+body.documentation main .wrap.frequentlyaskedquestions{
+	h1, h2, h3{
+		cursor: pointer;
+		-webkit-transition: -webkit-transform .3s;
+		transition: -webkit-transform .3s;
+		-o-transition: transform .3s;
+		transition: transform .3s;
+		transition: transform .3s, -webkit-transform .3s;
+		margin-top: 20px;
+	}
+	h2 + p, h1 + p , h3 + p {
+		display: none;
+		padding-left: 27px;
+		padding-bottom: 30px;
+	}
+	h3::before, h2::before, h1::before{
+		content: "\25BA";
+		font-size: 14px;
+		display: inline-block;
+		margin-right: 8px;
+		-webkit-transform: translateY(-3px);
+			-ms-transform: translateY(-3px);
+				transform: translateY(-3px);
+		-webkit-transition: -webkit-transform .3s;
+		transition: -webkit-transform .3s;
+		-o-transition: transform .3s;
+		transition: transform .3s;
+		transition: transform .3s, -webkit-transform .3s;
+	}
+	h3.open::before, h2.open::before, h1.open::before{
+		-webkit-transform: translateY(-3px) rotate(90deg);
+			-ms-transform: translateY(-3px) rotate(90deg);
+				transform: translateY(-3px) rotate(90deg);
+		-webkit-transition: -webkit-transform .3s;
+		transition: -webkit-transform .3s;
+		-o-transition: transform .3s;
+		transition: transform .3s;
+		transition: transform .3s, -webkit-transform .3s;
+	}
+}
+
+
+
+/** SPECIAL INSTALLATION PAGE **/
+
+body.installation{
+	main .wrap, main .wrap #main_content_wrap{
+		max-width: 100%;
+	}
+	h1{
+		font-size: 140%;
+		font-weight: normal;
+		margin-bottom: 50px;
+	}
+	h2{
+		font-size: 110%;
+		font-weight: normal;
+		margin-bottom: 7px;
+		-webkit-user-select: none;
+		   -moz-user-select: none;
+			-ms-user-select: none;
+				user-select: none;
+	}
+	.yourselection{
+		
+		position: relative;
+		max-width: 780px;
+	}
+	.wrap{
+		margin-bottom: 100px;
+	}
+	.select{
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: justify;
+				-ms-flex-pack: justify;
+					justify-content: space-between;
+			pointer-events: all;
+			/**margin-bottom: 53px;**/
+			li{
+				display: block;
+				white-space: nowrap;
+				background-color: $duckDBlightgrey;
+				color: darken($duckDBlightgrey,40);
+				border: 1px solid white;
+				border-bottom: 1px solid rgba(0,0,0,0.2);
+				border-left: 0px;
+				flex: auto;
+				-webkit-transition: background-color .3s;
+				-o-transition: background-color .3s;
+				transition: background-color .3s;
+				cursor: pointer;
+				-webkit-user-select: none;
+				   -moz-user-select: none;
+					-ms-user-select: none;
+						user-select: none;
+				text-align: center;
+				height: 35px;
+				line-height: 35px;
+				span.versioninfo{
+					color: darken($duckDBlightgrey,40);
+				}
+			&:hover{
+				background-color: darken($duckDBlightgrey,10);
+				}
+			&.selected{
+				 background-color: darken($duckDBlightgrey,5);
+				 border-bottom: 2px solid rgba(0,0,0,0.4);
+				 color: black;
+				}
+			}
+		}
+		&.inactive{
+			opacity: .4;
+			pointer-events: none;
+		}
+		&.inactive ul{
+			pointer-events: none;
+		}
+	}
+	.output{
+		.result{
+			font-family: $fontMono;
+			background-color: $duckDBlightgrey;
+			border-top: 0;
+			min-height: 100px;
+			padding: 10px;
+			font-size: 14px;
+			pre{
+				padding: 0;
+				margin: 0;
+			}
+		}
+	}
+	.possibleresults{
+		display: none;
+	}
+}
+
+/** DISCORD BANNER ON HOME PAGE **/
+.discord{
+	height: 55px;
+	color: white;
+	background-color: #5865f2;
+	margin-top: 53px;
+	position: relative;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	column-gap: 40px;
+	overflow: hidden;
+	display: none;
+	> svg{
+		width: 35px;
+		height: auto;
+	}
+	.button{
+		border: 1px solid white;
+		padding: 4px 27px 4px 10px;
+		display: block;
+		color: white;
+		text-decoration: none;
+		transition: color .4s, background .4s;
+		span::after{
+			content: "→";
+			font-family: "DuckDB-Symbol";
+			margin-left: 4px;
+			transition: transform .3s, color .3s;
+			position: absolute;
+		}
+		&:hover span::after{
+			transform: translateX(3px);
+			color: #5865f2;
+		}
+		&:hover{
+			color: #5865f2;
+			background-color: white;
+		}
+	}
+	.button.notonmobile{
+		display: block;
+	}
+	.button.onlymobile{
+		display: none;
+	}
+	p{
+		font-size: 120%;
+	}
+	.discordclose{
+		position: absolute;
+		right: 30px;
+		top: 19px;
+		cursor: pointer;
+	}
+}
+
+
+/** GENERATED HTML FIXES FOR DOCUMENTATION **/
+div.bodywrapper{
+	dl dt{
+		font-family: $fontMonoBold;
+		font-weight: normal;
+		a.headerlink{
+			opacity: 0;
+			transition: opacity .3s;
+			padding-left: 4px;
+		}
+		.sig-prename,
+		.property span.pre{
+			font-family: $fontMono;
+		}
+	}
+	dl{
+		p{
+			margin-top: 4px;
+			margin-bottom: 30px;
+			padding-left: 0;
+			font-style: normal;
+		}
+		dd{
+			padding-left: 0;
+		}
+	}
+	dl dd,
+	em.sig-param{
+		font-style: normal;
+		.n{
+			font-weight: normal;
+			font-family: $fontMono;
+		}
+	}
+	a.reference.internal{
+		text-decoration: none;
+	}
+	dt.sig-object{
+		background-color: whitesmoke;
+		border-radius: 7px;
+		padding: 2px 5px 2px 5px;
+		display: inline-block;
+		&:hover{
+			a.headerlink{
+				opacity: 1;
+			}
+		}
+	}
+}
+
+body.tmguidelines{
+	h1, h2{
+		font-size: 24px;
+		a{
+			color: inherit;
+		}
+	}
+	p + h2{
+		margin-top: 60px;
+	}
+	#main_content_wrap{
+		padding-bottom: 80px;	
+	}
+}
+
+@import url(search.css);
