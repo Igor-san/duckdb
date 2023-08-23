@@ -1,0 +1,306 @@
+---
+layout: default
+title: An in-process SQL OLAP database management system
+subtitle: An In-Process Analytical Database
+description: DuckDB is an in-process SQL OLAP database management system. Simple, feature-rich, fast & open source.
+body_class: landing nowrap
+---
+
+<div class="discord">
+	<svg width="36" height="27" viewBox="0 0 36 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M29.713 2.24A28.708 28.708 0 0 0 22.57.003a.107.107 0 0 0-.066.009.11.11 0 0 0-.05.045c-.306.554-.648 1.275-.888 1.845a26.482 26.482 0 0 0-8.025 0 18.732 18.732 0 0 0-.902-1.845.113.113 0 0 0-.05-.047.11.11 0 0 0-.066-.01 28.685 28.685 0 0 0-7.144 2.237.103.103 0 0 0-.047.04C.781 9.14-.467 15.833.145 22.442a.123.123 0 0 0 .046.082 29.01 29.01 0 0 0 8.764 4.47.111.111 0 0 0 .123-.04 20.838 20.838 0 0 0 1.793-2.944.113.113 0 0 0-.06-.156 19.081 19.081 0 0 1-2.738-1.317.11.11 0 0 1-.055-.09.115.115 0 0 1 .044-.097c.184-.14.368-.285.544-.43a.109.109 0 0 1 .114-.016c5.743 2.646 11.963 2.646 17.639 0a.108.108 0 0 1 .115.014c.176.147.358.293.544.432a.113.113 0 0 1 .03.149.112.112 0 0 1-.039.038c-.874.516-1.784.953-2.739 1.316a.108.108 0 0 0-.065.065.117.117 0 0 0 .005.092 23.633 23.633 0 0 0 1.792 2.943c.014.02.033.034.055.041a.11.11 0 0 0 .068.001 28.91 28.91 0 0 0 8.777-4.471.114.114 0 0 0 .047-.081c.731-7.64-1.225-14.28-5.19-20.162a.089.089 0 0 0-.046-.042ZM11.73 18.416c-1.729 0-3.155-1.603-3.155-3.57 0-1.967 1.398-3.57 3.155-3.57 1.77 0 3.182 1.616 3.154 3.57 0 1.968-1.398 3.57-3.154 3.57Zm11.663 0c-1.73 0-3.155-1.603-3.155-3.57 0-1.967 1.397-3.57 3.155-3.57 1.77 0 3.182 1.616 3.154 3.57 0 1.968-1.383 3.57-3.154 3.57Z" fill="#fff"/></svg>
+	<p>Join the DuckDB Discord server!</p>
+	<a class="button notonmobile" href="https://discord.duckdb.org">
+		<span>Join now</span>
+	</a>
+	<a class="button onlymobile" href="https://discord.duckdb.org">
+		<span>Join DuckDB on Discord</span>
+	</a>
+	<div class="discordclose">
+		<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.972 11.648 7.736 6.44l5.236-5.208L11.712 0 6.504 5.208 1.296 0 .064 1.232 5.272 6.44.064 11.648l1.232 1.232 5.208-5.208 5.208 5.208 1.26-1.232Z" fill="#fff"/></svg>
+	</div>
+</div>
+
+<section>
+	<div class="welcome">
+		<div id="duckdbdanimationcircled" style="width: 75px; height: 75px; margin: 0 auto; margin-bottom: 35px;"></div>
+		<!--<img src="{{ site.baseurl }}/images/duckdb-circle.svg" alt="DuckDB Logo">-->
+		<h1>DuckDB is an <nobr>in-process</nobr> <br class="break">SQL <nobr class="break">OLAP database </nobr>management system</h1>
+		<div class="mainlinks">
+			<ul>
+				<a href="#quickinstall"><li class="highlighted">Installation <span class="duckdbsymbol">&#x2193;</span> </li></a>
+				<a href="/docs/archive/{{ site.currentduckdbversion }}"><li>Documentation</li></a>
+				<a href="https://shell.duckdb.org"><li>Live Demo</li></a>
+			</ul>
+		</div>
+	</div>
+</section>
+
+
+<section>
+	<div class="wrap">
+
+		<div class="whyduckdb">
+
+			<h2>Why DuckDB?</h2>
+
+			<div class="boxlayout">
+				<div class="box">
+					<div>
+						<div class="icon"><span class="duckdbsymbol">&#xE100;</span></div>
+					</div>
+					<div>
+						<h3>Simple and portable</h3>
+						<ul>
+							<li>In-process, serverless</li>
+							<li>C++11, no dependencies, single-file build</li>
+							<li>APIs for Python, R, Java, Julia, Swift, …</li>
+							<li>Runs on Windows, Linux, macOS, OpenBSD, …</li>
+						</ul>
+						<a class="readmore" href="{{ site.url }}{{ site.baseurl }}/why_duckdb.html#duckdbissimple">more <span></span></a>
+					</div>
+				</div>
+
+				<div class="box">
+					<div>
+						<div class="icon"><span class="duckdbsymbol">&#xE200;</span></div>
+					</div>
+					<div>
+						<h3>Feature-rich</h3>
+						<ul>
+							<li>Transactions, persistence</li>
+							<li>Extensive SQL support</li>
+							<li>Direct Parquet, CSV, and JSON querying</li>
+							<li>Joins, aggregates, window functions</li>
+						</ul>
+						<a class="readmore" href="{{ site.url }}{{ site.baseurl }}/why_duckdb.html#duckdbisfeaturerich">more <span></span></a>
+					</div>
+				</div>
+
+				<div class="box">
+					<div>
+						<div class="icon"><span class="duckdbsymbol">&#xE300;</span></div>
+					</div>
+					<div>
+						<h3>Fast</h3>
+						<ul>
+							<li>Optimized for analytics</li>
+							<li>Vectorized and parallel engine</li>
+							<li>Larger than memory processing</li>
+							<li>Parallel Parquet, CSV, and NDJSON loaders</li>
+						</ul>
+						<a class="readmore" href="{{ site.url }}{{ site.baseurl }}/why_duckdb.html#duckdbisfast">more <span></span></a>
+					</div>
+				</div>
+
+				<div class="box">
+					<div>
+						<div class="icon"><span class="duckdbsymbol">&#xE400;</span></div>
+					</div>
+					<div>
+						<h3>Free and extensible</h3>
+						<ul>
+							<li>Free &amp; open-source</li>
+							<li>Permissive MIT License</li>
+							<li>Flexible extension mechanism</li>
+						</ul>
+						<a class="readmore" href="{{ site.url }}{{ site.baseurl }}/why_duckdb.html#duckdbisfree">more <span></span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>
+
+
+<section>
+	<div class="benefits">
+		<h1>All the benefits of a database, <nobr>none of the hassle.</nobr></h1>
+	</div>
+</section>
+
+<section id="quickinstall">
+	<div class="wrap install">
+		<h2>Installation</h2>
+		<p>Choose your environment to use for DuckDB</p>
+		<div class="environment">
+			<ul>
+				<li data-id="ver-cli" class="active">Command Line</li>
+				<li data-id="ver-python">Python</li>
+				<li data-id="ver-r">R</li>
+				<li data-id="ver-java">Java</li>
+				<li data-id="ver-js">node.js</li>
+				<li data-id="ver-julia">Julia</li>
+				<li data-id="ver-cplusplus">C++</li>
+				<li data-id="ver-odbc">ODBC</li>
+			</ul>
+		</div>
+		<label class="onlymobile">
+			<select name="environment" class="environmentselect onlymobile">
+				<option value="ver-cli">Command Line</option>
+				<option value="ver-python">Python</option>
+				<option value="ver-r">R</option>
+				<option value="ver-java">Java</option>
+				<option value="ver-js">node.js</option>
+				<option value="ver-julia">Julia</option>
+				<option value="ver-cplusplus">C++</option>
+				<option value="ver-odbc">ODBC</option>
+			</select>
+		</label>
+		<div class="result">
+			<a href="https://github.com/duckdb/duckdb/releases/download/v{{ site.currentduckdbversion }}/duckdb_cli-windows-amd64.zip" target="_blank">https://github.com<wbr>/duckdb/<wbr>duckdb/<wbr>releases/<wbr>download/<wbr>v{{ site.currentduckdbversion }}/duckdb_cli-windows-amd64.zip</a>
+		</div>
+		<p class="system">
+			<span>Latest release: DuckDB {{ site.currentduckdbversion }}</span>
+			<span class="systemdetected">System detected: </span>
+			<span><a href="docs/installation/">Other Installations</a></span>
+		</p>
+
+		<div class="hidden">
+			<p class="ver-python">pip install duckdb=={{ site.currentduckdbversion }}</p>
+			<p class="ver-r">install.packages("duckdb")</p>
+			<p class="ver-java">
+			&lt;dependency&gt;<br>
+				&nbsp;&nbsp;&lt;groupId&gt;org.duckdb&lt;/groupId&gt;<br>
+				&nbsp;&nbsp;&lt;artifactId&gt;duckdb_jdbc&lt;/artifactId&gt;<br>
+				&nbsp;&nbsp;&lt;version&gt;{{ site.currentjavaversion }}&lt;/version&gt;<br>
+				&lt;/dependency&gt;<br><br>
+				<a href="https://search.maven.org/artifact/org.duckdb/duckdb_jdbc/{{ site.currentduckdbversion }}/jar">More Options</a>
+			</p>
+			<p class="ver-js">npm install duckdb</p>
+			<p class="ver-julia">using Pkg<br/>Pkg.add("DuckDB")</p>
+			<p class="ver-cplusplus macos"><a href="https://github.com/duckdb/duckdb/releases/download/v{{ site.currentduckdbversion }}/libduckdb-osx-universal.zip" target="_blank">https://github.com/<wbr>duckdb/<wbr>duckdb/<wbr>releases/<wbr>download/<wbr>v{{ site.currentduckdbversion }}/libduckdb-osx-universal.zip</a></p>
+			<p class="ver-cplusplus linux"><a href="https://github.com/duckdb/duckdb/releases/download/v{{ site.currentduckdbversion }}/libduckdb-linux-amd64.zip" target="_blank">https://github.com/<wbr>duckdb/<wbr>duckdb/<wbr>releases/<wbr>download/<wbr>v{{ site.currentduckdbversion }}/libduckdb-linux-amd64.zip</a></p>
+			<p class="ver-cplusplus win"><a href="https://github.com/duckdb/duckdb/releases/download/v{{ site.currentduckdbversion }}/libduckdb-windows-amd64.zip" target="_blank">https://github.com/<wbr>duckdb/<wbr>duckdb/<wbr>releases/<wbr>download/<wbr>v{{ site.currentduckdbversion }}/libduckdb-windows-amd64.zip</a></p>
+			<p class="ver-cli macos">brew install duckdb<br/>---<br/>Direct download: <a href="https://github.com/duckdb/duckdb/releases/download/v{{ site.currentduckdbversion }}/duckdb_cli-osx-universal.zip" target="_blank">https://github.com<wbr>/duckdb/<wbr>duckdb/<wbr>releases/<wbr>download/<wbr>v{{ site.currentduckdbversion }}/duckdb_cli-osx-universal.zip</a></p>
+			<p class="ver-cli linux"><a href="https://github.com/duckdb/duckdb/releases/download/v{{ site.currentduckdbversion }}/duckdb_cli-linux-amd64.zip" target="_blank">https://github.com<wbr>/duckdb/<wbr>duckdb/<wbr>releases/<wbr>download/<wbr>v{{ site.currentduckdbversion }}/duckdb_cli-linux-amd64.zip</a></p>
+			<p class="ver-cli win"><a href="https://github.com/duckdb/duckdb/releases/download/v{{ site.currentduckdbversion }}/duckdb_cli-windows-amd64.zip" target="_blank">https://github.com<wbr>/duckdb/<wbr>duckdb/<wbr>releases/<wbr>download/<wbr>v{{ site.currentduckdbversion }}/duckdb_cli-windows-amd64.zip</a></p>
+			<p class="ver-odbc linux"><a href="https://github.com/duckdb/duckdb/releases/download/v{{ site.currentduckdbversion }}/duckdb_odbc-linux-amd64.zip" target="_blank">https://github.com/<wbr>duckdb/<wbr>duckdb/<wbr>releases/<wbr>download/<wbr>v{{ site.currentduckdbversion }}/duckdb_odbc-linux-amd64.zip</a></p>
+			<p class="ver-odbc win"><a href="https://github.com/duckdb/duckdb/releases/download/v{{ site.currentduckdbversion }}/duckdb_odbc-windows-amd64.zip" target="_blank">https://github.com/<wbr>duckdb/<wbr>duckdb/<wbr>releases/<wbr>download/<wbr>v{{ site.currentduckdbversion }}/duckdb_odbc-windows-amd64.zip</a></p>
+			<p class="ver-odbc macos">Not available</p>
+
+		</div>
+
+	</div>
+</section>
+
+<section>
+	<div class="wrap">
+		<div class="using">
+			<div class="box">
+				<h2>When to use DuckDB</h2>
+				<div class="icon">
+					<span class="duckdbsymbol">&#xE600;</span>
+				</div>
+				<div>
+					<ul>
+						<li>Processing and storing tabular datasets, e.g. from CSV or Parquet files</li>
+						<li>Interactive data analysis, e.g. Joining & aggregate multiple large tables</li>
+						<li>Concurrent large changes, to multiple large tables, e.g. appending rows, adding/removing/updating columns</li>
+						<li>Large result set transfer to client</li>
+					</ul>
+				</div>
+			</div>
+			<div class="box">
+				<h2>When to not use DuckDB</h2>
+				<div class="icon">
+					<span class="duckdbsymbol">&#xE500;</span>
+				</div>
+				<div>
+					<ul>
+						<li>High-volume transactional use cases (e.g. tracking orders in a webshop)</li>
+						<li>Large client/server installations for centralized enterprise data warehousing</li>
+						<li>Writing to a single database from multiple concurrent processes</li>
+						<li>Multiple concurrent processes reading from a single writable database</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section>
+	<div class="wrap">
+		<div class="newsblog">
+			<h2>Blog</h2><a href="{{ site.url }}{{ site.baseurl }}/news" class="newsarchive">Archive <span></span></a>
+			<div class="newswrap">
+				{% for post in site.posts limit:3 %}
+				{% capture year %}{{post.date | date: "%Y"}}{% endcapture %}
+				{% capture month %}{{post.date | date: "%B"}}{% endcapture %}
+				<div class="postpreview" data-year="{{year}}" data-month="{{month}}">
+					<div class="date">{{ post.date | date: "%Y-%m-%d" }}</div>
+					<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+					<p>{{ post.content | strip_html | truncatewords: 50, " […]" }}</p>
+					<a class="continue" href="{{ post.url }}">continue reading <span></span></a>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--
+<section class="reducedpadding">
+	<div class="wrap">
+		<div class="stickerbanner">
+			<div>
+				<h2>Free Stickers</h2>
+				<p>Send us your address to get your free sticker set!</p>
+				<a href="mailto:&#x6d;&#x61;&#x72;&#x69;&#x65;&#x40;&#x64;&#x75;&#x63;&#x6b;&#x64;&#x62;&#x6c;&#x61;&#x62;&#x73;&#x2e;&#x63;&#x6f;&#x6d;?subject=DuckDB%20Sticker%20Set&body=Hi%20Marie%2C%20%0AI%20would%20like%20to%20receive%20a%20free%20DuckDB%20Sticker%20Set.%2C%20%0AHere%20is%20my%20address%3A%20%0A%0APLEASE%20INSERT%20YOUR%20ADDRESS%20HERE">
+				<div class="button">
+					Get free Stickers<span></span>
+				</div>
+				</a>
+			</div>
+			<div>
+				<svg width="187" height="150" viewBox="0 0 187 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M74.6667 64.0604V21.3485L37.3333 0L0 21.3485V64.0604L37.3333 85.4238L74.6667 64.0604Z" fill="#FFF100"/>
+				<path d="M49.2499 39.4426H44.9043V45.9374H49.2499C51.0568 45.9374 52.5502 44.458 52.5502 42.6678C52.5502 40.8777 51.0568 39.4426 49.2499 39.4426Z" fill="black"/>
+				<path d="M23.6095 42.7119C23.6095 47.7273 27.7162 51.8106 32.7935 51.8106C37.8708 51.8106 41.9775 47.7421 41.9775 42.7119C41.9775 37.6818 37.8708 33.6133 32.7935 33.6133C27.7162 33.6133 23.6095 37.6966 23.6095 42.7119Z" fill="black"/>
+				<path d="M186.667 128.134V85.4223L149.333 64.0737L112 85.4223V128.134L149.333 149.497L186.667 128.134Z" fill="#FFF100"/>
+				<path d="M161.25 103.516H156.904V110.011H161.25C163.057 110.011 164.55 108.532 164.55 106.742C164.55 104.951 163.057 103.516 161.25 103.516Z" fill="black"/>
+				<path d="M135.609 106.786C135.609 111.801 139.716 115.884 144.793 115.884C149.871 115.884 153.978 111.816 153.978 106.786C153.978 101.756 149.871 97.687 144.793 97.687C139.716 97.687 135.609 101.77 135.609 106.786Z" fill="black"/>
+				<path d="M112 128.134V85.4223L74.6667 64.0737L37.3334 85.4223V128.134L74.6667 149.497L112 128.134Z" fill="black"/>
+				<path d="M86.5834 103.516H82.2378V110.011H86.5834C88.3903 110.011 89.8837 108.532 89.8837 106.742C89.8837 104.951 88.3903 103.516 86.5834 103.516Z" fill="#FFEF00"/>
+				<path d="M60.9429 106.786C60.9429 111.801 65.0495 115.884 70.1269 115.884C75.2042 115.884 79.3109 111.816 79.3109 106.786C79.3109 101.756 75.2042 97.687 70.1269 97.687C65.0495 97.687 60.9429 101.77 60.9429 106.786Z" fill="#FFEF00"/>
+				</svg>
+
+			</div>
+	</div>
+</section>
+-->
+
+<!--
+<section>
+	<div class="wrap docu">
+		<h2>Documentation</h2>
+		<div class="boxlayout">
+			<div class="box">
+				<p>The Documentation provides in-depth instructions about DuckDB technical features and capabilities.</p>
+				<a href="{{ site.url }}{{ site.baseurl }}/faq/"><div class="button">FAQ</div></a>
+				<a href="{{ site.url }}{{ site.baseurl }}/docs/"><div class="button">Documentation</div></a>
+			</div>
+
+			<div class="box">
+				<p>Quick access to beginner topics <span class="duckdbsymbol">&#8595;</span> </p>
+				<div class="quicklinks">
+					<div class="quickaccess">
+						<p>Tutorials</p>
+						<li><a href="{{ site.url }}{{ site.baseurl }}/docs/installation/">Installation</a></li>
+						<li><a href="{{ site.url }}{{ site.baseurl }}docs/data/import">Data Import</a></li>
+						<li><a href="{{ site.url }}{{ site.baseurl }}/docs/api/overview">Client APIs</a></li>
+					</div>
+					<div class="quickaccess">
+						<p>The SQL Language</p>
+						<li><a href="{{ site.url }}{{ site.baseurl }}/docs/sql/introduction/">Introduction</a></li>
+						<li><a href="{{ site.url }}{{ site.baseurl }}/docs/sql/statements/select/">Statements</a></li>
+						<li><a href="{{ site.url }}{{ site.baseurl }}/docs/sql/data_types/introduction/">Data Types</a></li>
+						<li><a href="{{ site.url }}{{ site.baseurl }}/docs/sql/expressions/introduction/">Expressions</a></li>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+-->
