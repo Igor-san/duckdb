@@ -156,5 +156,6 @@ module Jekyll
     end
   end
 end
-
+<!---
 Liquid::Template.register_tag('duckdb_functions', Jekyll::DuckDBFunctionsTag)
+-->
