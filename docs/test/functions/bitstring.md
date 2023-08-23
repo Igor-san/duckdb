@@ -3,5 +3,5 @@ title: Bitstring Functions
 layout: docu
 ---
 
-{% duckdb_functions function['category'] == 'bit' %}
+[comment]: <> {% duckdb_functions function['category'] == 'bit' %}
 
